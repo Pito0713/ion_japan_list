@@ -1,4 +1,18 @@
+
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+      router: {
+        base: '/ion_japan_list/'
+      }
+    }
+    : {}
+
+
 export default {
+  app: {
+    baseURL: '/ion_japan_list/'
+  },
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -45,5 +59,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
-  }
+  },
+
+  ...routerBase
 }
